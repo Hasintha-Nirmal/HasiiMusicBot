@@ -324,7 +324,6 @@ class YouTube:
                 "socket_timeout": 30,  # Increased from 15s (prevents timeout on slow networks)
                 "retries": 2,  # Increased from 1 (better reliability)
                 "fragment_retries": 2,  # Increased from 1 (handle network hiccups)
-                "ignoreerrors": True,
             }
 
             # Audio-only: Prefer Opus codec (best quality) but accept any audio format
@@ -345,9 +344,13 @@ class YouTube:
                         logger.error(f"❌ Failed to extract info for {video_id}")
                         return None
                     
-                    # Get actual extension from downloaded file
-                    actual_ext = info.get('ext', 'webm')
-                    actual_filename = f"downloads/{video_id}.{actual_ext}"
+                    # Get actual filepath from yt-dlp's own download record (most reliable)
+                    requested = info.get('requested_downloads', [])
+                    if requested and requested[0].get('filepath'):
+                        actual_filename = requested[0]['filepath']
+                    else:
+                        actual_ext = info.get('ext', 'webm')
+                        actual_filename = f"downloads/{video_id}.{actual_ext}"
                     
                     # Check if file exists
                     if Path(actual_filename).exists():

@@ -67,7 +67,11 @@ class Language:
                     chat = fallen.message.chat
 
                 if chat.id in db.blacklisted:
-                    return await chat.leave()
+                    try:
+                        await chat.leave()
+                    except Exception:
+                        pass
+                    return
 
                 lang_code = "en"
                 lang_dict = self.languages[lang_code]
