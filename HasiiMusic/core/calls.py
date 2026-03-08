@@ -586,7 +586,10 @@ class TgCall(PyTgCalls):
                             await self.play_media(chat_id, msg, first_track, message_chat_id=message_chat_id)
                         except errors.ChannelPrivate:
                             logger.warning(f"Bot removed from {chat_id}, cleaning up")
-                            await self.leave_call(chat_id)
+                            try:
+                                await self.leave_call(chat_id)
+                            except Exception:
+                                pass
                             await db.rm_chat(chat_id)
                         return
                 
@@ -626,7 +629,10 @@ class TgCall(PyTgCalls):
                         msg = await app.send_message(chat_id=target_chat, text=_lang["play_next"])
                     except errors.ChannelPrivate:
                         logger.warning(f"Bot removed from {chat_id}, cleaning up")
-                        await self.leave_call(chat_id)
+                        try:
+                            await self.leave_call(chat_id)
+                        except Exception:
+                            pass
                         await db.rm_chat(chat_id)
                         return
                     except Exception as e:
@@ -635,7 +641,10 @@ class TgCall(PyTgCalls):
                         msg = None
                 except errors.ChannelPrivate:
                     logger.warning(f"Bot removed from {chat_id}, cleaning up")
-                    await self.leave_call(chat_id)
+                    try:
+                        await self.leave_call(chat_id)
+                    except Exception:
+                        pass
                     await db.rm_chat(chat_id)
                     return
                 except Exception as e:

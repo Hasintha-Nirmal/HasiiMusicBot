@@ -314,7 +314,6 @@ class YouTube:
                 "overwrites": False,
                 "nocheckcertificate": True,
                 "cookiefile": cookie,
-                "continuedl": True,
                 "noprogress": True,
                 # **PERFORMANCE FIX**: Reduced to 4 fragments for maximum stability
                 # 4 fragments × 5 concurrent downloads = 20 total connections (prevents bandwidth saturation)
@@ -402,6 +401,14 @@ class YouTube:
                     if "416" in error_msg or "Requested range not satisfiable" in error_msg:
                         # HTTP 416 - file partially downloaded, delete and retry won't help
                         logger.warning(f"⚠️ Range error for {video_id}, skipping")
+                    elif "unable to rename" in error_msg.lower() or "rename file" in error_msg.lower():
+                        # Race condition: two concurrent downloads for the same video_id
+                        # The file may already exist under a different name - check glob
+                        possible_files = glob.glob(f"downloads/{video_id}.*")
+                        possible_files = [f for f in possible_files if not f.endswith('.part')]
+                        if possible_files:
+                            return possible_files[0]
+                        logger.warning(f"⚠️ Rename race condition for {video_id}, file not found")
                     elif "failed to load cookies" in error_msg.lower() or "netscape format" in error_msg.lower():
                         logger.warning(
                             "⚠️ Failed to load cookies for {video_id}: {error_msg}")
