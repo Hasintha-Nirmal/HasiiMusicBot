@@ -126,10 +126,10 @@ async def update_timer(length=10):
             print(f"Preload error for chat {chat_id}: {e}")
 
     async def update_chat_timer(chat_id):
-        """Update timer for a specific chat every 7 seconds."""
+        """Update timer for a specific chat every 10 seconds."""
         while True:
             try:
-                await asyncio.sleep(7)
+                await asyncio.sleep(10)
 
                 # Check if chat is still active and playing
                 if chat_id not in db.active_calls or not await db.playing(chat_id):
