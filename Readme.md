@@ -104,6 +104,7 @@ bash start
 - `/skip` - Skip current track (also `/next`)
 - `/stop` - Stop playing and clear queue (also `/end`)
 - `/seek` - Seek to specific timestamp
+- `/addcookie` - Reply to a `.txt` file to upload a new YouTube cookie
 - `/reload` - Reload admin cache
 
 ### Sudo Commands
