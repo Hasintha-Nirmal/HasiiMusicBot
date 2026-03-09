@@ -218,7 +218,7 @@ class YouTube:
         except KeyError as e:
             # Handle YouTube API structure changes
             raise Exception(
-                f"Failed to parse playlist. YouTube may have changed their structure.")
+                "Failed to parse playlist. YouTube may have changed its structure.")
         except Exception as e:
             # Re-raise other exceptions
             raise
@@ -329,7 +329,7 @@ class YouTube:
             # Don't force WebM container - let YouTube provide whatever's available
             ydl_opts = {
                 **base_opts,
-                "format": "bestaudio[acodec=opus]/bestaudio/best",
+                "format": "bestaudio/best",
                 "postprocessors": [],  # No post-processing to preserve original quality
             }
 
@@ -411,7 +411,7 @@ class YouTube:
                         logger.warning(f"⚠️ Rename race condition for {video_id}, file not found")
                     elif "failed to load cookies" in error_msg.lower() or "netscape format" in error_msg.lower():
                         logger.warning(
-                            "⚠️ Failed to load cookies for {video_id}: {error_msg}")
+                            f"⚠️ Failed to load cookies for {video_id}: {error_msg}")
                         # Remove corrupted cookie from list and filesystem
                         if cookie:
                             cookie_name = os.path.basename(cookie)
