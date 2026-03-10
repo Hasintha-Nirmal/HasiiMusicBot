@@ -5,8 +5,8 @@
   
   <p><b>A Powerful Telegram Music Player Bot</b></p>
   
-  [![Telegram](https://img.shields.io/badge/Telegram-Channel-blue?style=for-the-badge&logo=telegram)](https://t.me/TheInfinityAI)
-  [![Telegram](https://img.shields.io/badge/Telegram-Support-blue?style=for-the-badge&logo=telegram)](https://t.me/Hasindu_Lakshan)
+  [![Telegram](https://img.shields.io/badge/Telegram-Channel-blue?style=for-the-badge&logo=telegram)](https://t.me/HasinthaNirmal)
+  [![Telegram](https://img.shields.io/badge/Telegram-Support-blue?style=for-the-badge&logo=telegram)](https://t.me/HasinthaNirmal)
   
 </div>
 
@@ -62,7 +62,7 @@ COOKIE_URL=youtube_cookies_url (optional)
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/hasindu-nagolla/HasiiMusicBot
+git clone https://github.com/Hasintha-Nirmal/HasiiMusicBot
 cd HasiiMusicBot
 ```
 
@@ -144,9 +144,9 @@ The bot streams audio at **STUDIO** quality (highest available) with:
 ## 📞 Support & Contact
 
 - **Developer**: Hasindu Nagolla
-- **Telegram Channel**: [@TheInfinityAI](https://t.me/TheInfinityAI)
-- **Support Group**: [@Hasindu_Lakshan](https://t.me/Hasindu_Lakshan)
-- **GitHub**: [hasindu-nagolla](https://github.com/hasindu-nagolla)
+- **Telegram Channel**: [@HasinthaNirmal](https://t.me/HasinthaNirmal)
+- **Support Group**: [@HasinthaNirmal](https://t.me/HasinthaNirmal)
+- **GitHub**: [Hasintha-Nirmal](https://github.com/Hasintha-Nirmal)
 
 ---
 
@@ -162,7 +162,7 @@ The bot streams audio at **STUDIO** quality (highest available) with:
 
 ## 🙏 Credits
 
-Special thanks to [AnonymousX1025](https://github.com/AnonymousX1025) for the original inspiration.
+Special thanks to [Hasindu Nagolla](https://github.com/hasindu-nagolla) for the original inspiration.
 
 ---
 
