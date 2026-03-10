@@ -234,6 +234,7 @@ class YouTube:
                 "no_warnings": True,
                 "cookiefile": cookie,
                 "format": "bestaudio/best",
+                "js_runtimes": {"node": {}, "deno": {}},
             }
 
             def _extract_url():
@@ -341,6 +342,7 @@ class YouTube:
                 "socket_timeout": 30,  # Increased from 15s (prevents timeout on slow networks)
                 "retries": 2,  # Increased from 1 (better reliability)
                 "fragment_retries": 2,  # Increased from 1 (handle network hiccups)
+                "js_runtimes": {"node": {}, "deno": {}},
             }
 
             # Audio-only: Prefer Opus codec (best quality) but accept any audio format
