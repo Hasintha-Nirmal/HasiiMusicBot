@@ -1,0 +1,128 @@
+[debug] Command-line config: ['-vU', 'https://www.youtube.com/watch?v=SXKT7_IdVKs']
+[debug] Encodings: locale cp1252, fs utf-8, pref cp1252, out cp1252 (No ANSI), error cp1252 (No ANSI), screen cp1252 (No ANSI)
+[debug] yt-dlp version stable@2026.03.03 from yt-dlp/yt-dlp [2ecc4c3bc] (pip)
+[debug] Python 3.14.2 (CPython AMD64 64bit) - Windows-11-10.0.26200-SP0 (OpenSSL 3.0.18 30 Sep 2025)
+[debug] exe versions: ffmpeg 2025-12-18-git-78c75d546a-full_build-www.gyan.dev (setts), ffprobe 2025-12-18-git-78c75d546a-full_build-www.gyan.dev
+[debug] Optional libraries: Cryptodome-3.23.0, brotli-1.2.0, certifi-2025.11.12, mutagen-1.47.0, requests-2.32.5, sqlite3-3.50.4, urllib3-2.6.2, websockets-15.0.1, yt_dlp_ejs-0.3.2
+[debug] JS runtimes: none
+[debug] Proxy map: {}
+[debug] Request Handlers: urllib, requests, websockets
+[debug] Plugin directories: none
+[debug] Loaded 1864 extractors
+[debug] Fetching release info: https://api.github.com/repos/yt-dlp/yt-dlp/releases/latest
+Latest version: stable@2026.03.03 from yt-dlp/yt-dlp
+yt-dlp is up to date (stable@2026.03.03 from yt-dlp/yt-dlp)
+[debug] [youtube] [pot] PO Token Providers: none
+[debug] [youtube] [pot] PO Token Cache Providers: memory
+[debug] [youtube] [pot] PO Token Cache Spec Providers: webpo
+[debug] [youtube] [jsc] JS Challenge Providers: bun (unavailable), deno (unavailable), node (unavailable), quickjs (unavailable)
+[youtube] Extracting URL: https://www.youtube.com/watch?v=SXKT7_IdVKs
+[youtube] SXKT7_IdVKs: Downloading webpage
+WARNING: [youtube] No supported JavaScript runtime could be found. Only deno is enabled by default; to use another runtime add  --js-runtimes RUNTIME[:PATH]  to your command/config. YouTube extraction without a JS runtime has been deprecated, and some formats may be missing. See  https://github.com/yt-dlp/yt-dlp/wiki/EJS  for details on installing one
+[debug] [youtube] Forcing player 9f4cc5e4 in place of player 44899b31
+        Forcing "tv" player JS variant for player 9f4cc5e4
+        original url = /s/player/44899b31/player_es6.vflset/en_US/base.js
+[youtube] SXKT7_IdVKs: Downloading android vr player API JSON
+[debug] Sort order given by extractor: quality, res, fps, hdr:12, source, vcodec, channels, acodec, lang, proto
+[debug] Formats sorted by: hasvid, ie_pref, quality, res, fps, hdr:12(7), source, vcodec, channels, acodec, lang, proto, size, br, asr, vext, aext, hasaud, id
+[debug] Default format spec: bestvideo*+bestaudio/best
+[info] SXKT7_IdVKs: Downloading 1 format(s): 399+251
+[debug] Invoking http downloader on "https://rr1---sn-xupn5a5ua3-jhc6.googlevideo.com/videoplayback?expire=1773165858&ei=wgiwaeneM_vXg8UPx-mLmA8&ip=43.252.15.119&id=o-AJyNmINTwWacY_FNLC6qjwQksxg8zzeeiCz6RSotKkOV&itag=399&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&cps=495&met=1773144258%2C&mh=UI&mm=31%2C29&mn=sn-xupn5a5ua3-jhc6%2Csn-cvhelnls&ms=au%2Crdu&mv=m&mvi=1&pl=24&rms=au%2Cau&initcwndbps=171250&bui=AVNa5-yNUUUaMkmu3_PNnFstf1AclBEO_VXISJo-PgB4w0HE0DlfiGdE68myzXBymoUaaVd9eNNADM_3&spc=6dlaFA8NdiK3P0p80kDEO-yZYwkB8XwVgJrdzlm2lzh63k1K&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&gir=yes&clen=14733420&dur=127.333&lmt=1756612307006379&mt=1773143838&fvip=4&keepalive=yes&fexp=51565115%2C51565681%2C51791334&c=ANDROID_VR&txp=5537534&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AHEqNM4wRAIhAPFU1Tf4VNN1Slu0fg-Fyn3hckWsYBYXBYaPET7hOSAoAh9efUfjdSD_pPyFIee7IL3Fy0JLkB-l7V3tHZ4fzIjk&lsparams=cps%2Cmet%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Crms%2Cinitcwndbps&lsig=APaTxxMwRAIgPXCdZEM1AagTHuuQKT207tlz0fJUHSIDBD_ZBT9h_V8CIBgs6m108qhY9lZNh3k8zazBuitpsOPtBHnrHGEkjejZ"
+[download] Destination:      Rosa Male Natuwe Katu (2025 Remake)  Clarence Rhythm of the Guitar [SXKT7_IdVKs].f399.mp4
+[debug] File locking is not supported. Proceeding without locking
+
+[download]   0.0% of   14.05MiB at  Unknown B/s ETA 00:14
+[download]   0.0% of   14.05MiB at    1.91MiB/s ETA 00:07
+[download]   0.0% of   14.05MiB at    3.71MiB/s ETA 00:03
+[download]   0.1% of   14.05MiB at    7.07MiB/s ETA 00:01
+[download]   0.2% of   14.05MiB at  328.62KiB/s ETA 00:43
+[download]   0.4% of   14.05MiB at  326.37KiB/s ETA 00:43
+[download]   0.9% of   14.05MiB at  405.08KiB/s ETA 00:35
+[download]   1.8% of   14.05MiB at  451.77KiB/s ETA 00:31
+[download]   3.6% of   14.05MiB at  479.86KiB/s ETA 00:28
+[download]   7.1% of   14.05MiB at  337.20KiB/s ETA 00:39
+[download]   8.9% of   14.05MiB at  324.70KiB/s ETA 00:40
+[download]  10.9% of   14.05MiB at  276.49KiB/s ETA 00:46
+[download]  12.0% of   14.05MiB at  273.03KiB/s ETA 00:46
+[download]  13.7% of   14.05MiB at  282.41KiB/s ETA 00:43
+[download]  16.3% of   14.05MiB at  273.24KiB/s ETA 00:44
+[download]  17.9% of   14.05MiB at  277.12KiB/s ETA 00:42
+[download]  20.2% of   14.05MiB at  274.76KiB/s ETA 00:41
+[download]  22.0% of   14.05MiB at  268.35KiB/s ETA 00:41
+[download]  23.5% of   14.05MiB at  270.38KiB/s ETA 00:40
+[download]  25.6% of   14.05MiB at  268.35KiB/s ETA 00:39
+[download]  27.3% of   14.05MiB at  262.87KiB/s ETA 00:39
+[download]  28.7% of   14.05MiB at  261.99KiB/s ETA 00:39
+[download]  30.4% of   14.05MiB at  252.91KiB/s ETA 00:39
+[download]  31.5% of   14.05MiB at  252.31KiB/s ETA 00:39
+[download]  33.2% of   14.05MiB at  254.63KiB/s ETA 00:37
+[download]  35.3% of   14.05MiB at  253.09KiB/s ETA 00:36
+[download]  36.9% of   14.05MiB at  253.24KiB/s ETA 00:35
+[download]  38.7% of   14.05MiB at  255.20KiB/s ETA 00:34
+[download]  40.8% of   14.05MiB at  254.66KiB/s ETA 00:33
+[download]  42.5% of   14.05MiB at  250.80KiB/s ETA 00:32
+[download]  43.8% of   14.05MiB at  250.30KiB/s ETA 00:32
+[download]  45.4% of   14.05MiB at  250.05KiB/s ETA 00:31
+[download]  47.1% of   14.05MiB at  250.41KiB/s ETA 00:30
+[download]  48.9% of   14.05MiB at  253.46KiB/s ETA 00:28
+[download]  51.5% of   14.05MiB at  250.99KiB/s ETA 00:27
+[download]  53.0% of   14.05MiB at  252.70KiB/s ETA 00:26
+[download]  55.3% of   14.05MiB at  251.20KiB/s ETA 00:25
+[download]  56.8% of   14.05MiB at  250.56KiB/s ETA 00:24
+[download]  58.4% of   14.05MiB at  249.58KiB/s ETA 00:23
+[download]  59.9% of   14.05MiB at  247.10KiB/s ETA 00:23
+[download]  61.2% of   14.05MiB at  248.70KiB/s ETA 00:22
+[download]  63.7% of   14.05MiB at  250.67KiB/s ETA 00:20
+[download]  65.8% of   14.05MiB at  249.42KiB/s ETA 00:19
+[download]  67.4% of   14.05MiB at  248.45KiB/s ETA 00:18
+[download]  68.8% of   14.05MiB at  246.73KiB/s ETA 00:18
+[download]  69.3% of   14.05MiB at  246.80KiB/s ETA 00:17
+[download]  69.3% of   14.05MiB at  Unknown B/s ETA Unknown
+[download]  69.3% of   14.05MiB at    2.44MiB/s ETA 00:01  
+[download]  69.3% of   14.05MiB at    3.42MiB/s ETA 00:01
+[download]  69.4% of   14.05MiB at    5.79MiB/s ETA 00:00
+[download]  69.5% of   14.05MiB at    9.45MiB/s ETA 00:00
+[download]  69.7% of   14.05MiB at  563.97KiB/s ETA 00:07
+[download]  70.2% of   14.05MiB at  400.07KiB/s ETA 00:10
+[download]  71.0% of   14.05MiB at  354.54KiB/s ETA 00:11
+[download]  72.8% of   14.05MiB at  339.62KiB/s ETA 00:11
+[download]  75.1% of   14.05MiB at  245.84KiB/s ETA 00:14
+[download]  76.3% of   14.05MiB at  247.52KiB/s ETA 00:13
+[download]  78.1% of   14.05MiB at  273.53KiB/s ETA 00:11
+[download]  81.3% of   14.05MiB at  260.06KiB/s ETA 00:10
+[download]  82.9% of   14.05MiB at  249.02KiB/s ETA 00:09
+[download]  84.2% of   14.05MiB at  250.14KiB/s ETA 00:09
+[download]  86.1% of   14.05MiB at  249.48KiB/s ETA 00:08
+[download]  87.8% of   14.05MiB at  252.09KiB/s ETA 00:06
+[download]  89.7% of   14.05MiB at  250.87KiB/s ETA 00:05
+[download]  91.4% of   14.05MiB at  249.17KiB/s ETA 00:04
+[download]  93.0% of   14.05MiB at  249.20KiB/s ETA 00:04
+[download]  94.7% of   14.05MiB at  250.01KiB/s ETA 00:03
+[download]  96.5% of   14.05MiB at  252.00KiB/s ETA 00:01
+[download]  98.5% of   14.05MiB at  251.84KiB/s ETA 00:00
+[download] 100.0% of   14.05MiB at  251.50KiB/s ETA 00:00
+[download] 100% of   14.05MiB in 00:00:58 at 244.18KiB/s 
+[debug] Invoking http downloader on "https://rr1---sn-xupn5a5ua3-jhc6.googlevideo.com/videoplayback?expire=1773165858&ei=wgiwaeneM_vXg8UPx-mLmA8&ip=43.252.15.119&id=o-AJyNmINTwWacY_FNLC6qjwQksxg8zzeeiCz6RSotKkOV&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&cps=495&met=1773144258%2C&mh=UI&mm=31%2C29&mn=sn-xupn5a5ua3-jhc6%2Csn-cvhelnls&ms=au%2Crdu&mv=m&mvi=1&pl=24&rms=au%2Cau&initcwndbps=171250&bui=AVNa5-yNUUUaMkmu3_PNnFstf1AclBEO_VXISJo-PgB4w0HE0DlfiGdE68myzXBymoUaaVd9eNNADM_3&spc=6dlaFA8NdiK3P0p80kDEO-yZYwkB8XwVgJrdzlm2lzh63k1K&vprv=1&svpuc=1&mime=audio%2Fwebm&rqh=1&gir=yes&clen=2338333&dur=127.361&lmt=1756609257668540&mt=1773143838&fvip=4&keepalive=yes&fexp=51565115%2C51565681%2C51791334&c=ANDROID_VR&txp=5532534&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AHEqNM4wRAIgOxjP_1d2alYwOcbmHqok0uEjwIn9un_DBF8hC_1MOCkCIECiINGI7SJqHWvWvxqpqglCbK95oTs6FV1-XiXa-06B&lsparams=cps%2Cmet%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Crms%2Cinitcwndbps&lsig=APaTxxMwRAIgPXCdZEM1AagTHuuQKT207tlz0fJUHSIDBD_ZBT9h_V8CIBgs6m108qhY9lZNh3k8zazBuitpsOPtBHnrHGEkjejZ"
+[download] Destination:      Rosa Male Natuwe Katu (2025 Remake)  Clarence Rhythm of the Guitar [SXKT7_IdVKs].f251.webm
+
+[download]   0.0% of    2.23MiB at    7.05KiB/s ETA 05:24
+[download]   0.1% of    2.23MiB at   20.92KiB/s ETA 01:49
+[download]   0.3% of    2.23MiB at   48.59KiB/s ETA 00:46
+[download]   0.7% of    2.23MiB at  103.75KiB/s ETA 00:21
+[download]   1.4% of    2.23MiB at  209.83KiB/s ETA 00:10
+[download]   2.8% of    2.23MiB at  114.09KiB/s ETA 00:19
+[download]   5.6% of    2.23MiB at  152.51KiB/s ETA 00:14
+[download]  11.2% of    2.23MiB at  172.84KiB/s ETA 00:11
+[download]  19.9% of    2.23MiB at  215.94KiB/s ETA 00:08
+[download]  33.8% of    2.23MiB at  239.17KiB/s ETA 00:06
+[download]  46.2% of    2.23MiB at  233.14KiB/s ETA 00:05
+[download]  55.7% of    2.23MiB at  237.12KiB/s ETA 00:04
+[download]  67.0% of    2.23MiB at  212.41KiB/s ETA 00:03
+[download]  73.2% of    2.23MiB at  218.69KiB/s ETA 00:02
+[download]  85.5% of    2.23MiB at  234.13KiB/s ETA 00:01
+[download] 100.0% of    2.23MiB at  238.54KiB/s ETA 00:00
+[download] 100% of    2.23MiB in 00:00:09 at 236.13KiB/s 
+[Merger] Merging formats into "     Rosa Male Natuwe Katu (2025 Remake)  Clarence Rhythm of the Guitar [SXKT7_IdVKs].webm"
+[debug] ffmpeg command line: ffmpeg -y -loglevel repeat+info -i "file:     Rosa Male Natuwe Katu (2025 Remake)  Clarence Rhythm of the Guitar [SXKT7_IdVKs].f399.mp4" -i "file:     Rosa Male Natuwe Katu (2025 Remake)  Clarence Rhythm of the Guitar [SXKT7_IdVKs].f251.webm" -c copy -map 0:v:0 -map 1:a:0 -movflags +faststart "file:     Rosa Male Natuwe Katu (2025 Remake)  Clarence Rhythm of the Guitar [SXKT7_IdVKs].temp.webm"
+Deleting original file      Rosa Male Natuwe Katu (2025 Remake)  Clarence Rhythm of the Guitar [SXKT7_IdVKs].f251.webm (pass -k to keep)
+Deleting original file      Rosa Male Natuwe Katu (2025 Remake)  Clarence Rhythm of the Guitar [SXKT7_IdVKs].f399.mp4 (pass -k to keep)

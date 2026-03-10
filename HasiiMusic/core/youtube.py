@@ -237,42 +237,60 @@ class YouTube:
             }
 
             def _extract_url():
-                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                    try:
-                        info = ydl.extract_info(url, download=False)
-                        return info.get("url") or info.get("manifest_url")
-                    except yt_dlp.utils.ExtractorError as ex:
-                        error_msg = str(ex)
-                        if "Sign in to confirm" in error_msg or "bot" in error_msg.lower():
-                            logger.error(
-                                "YouTube bot detection triggered. Please update cookies.")
-                        elif "not available" in error_msg.lower():
-                            logger.error(
-                                "Video format not available or region-blocked.")
-                        else:
-                            logger.error(
-                                "Live stream URL extraction failed: %s", ex)
-                        return None
-                    except yt_dlp.utils.DownloadError as ex:
-                        error_msg = str(ex)
-                        if "failed to load cookies" in error_msg.lower() or "netscape format" in error_msg.lower():
-                            logger.error(
-                                "❌ Corrupted cookie file detected for live stream, removing: %s", cookie)
-                            # Remove corrupted cookie
-                            if cookie and cookie in self.cookies:
-                                self.cookies.remove(cookie)
-                            try:
-                                os.remove(f"HasiiMusic/cookies/{cookie}")
-                            except:
-                                pass
-                        else:
+                configs_to_try = [
+                    ("bestaudio/best", True),
+                    (None, False)  # Fallback: Default format without cookie
+                ]
+                
+                for fmt, use_cookie in configs_to_try:
+                    current_opts = dict(ydl_opts)
+                    if not use_cookie and "cookiefile" in current_opts:
+                        del current_opts["cookiefile"]
+                    if fmt is not None:
+                        current_opts["format"] = fmt
+                    elif "format" in current_opts:
+                        del current_opts["format"]
+
+                    with yt_dlp.YoutubeDL(current_opts) as ydl:
+                        try:
+                            info = ydl.extract_info(url, download=False)
+                            return info.get("url") or info.get("manifest_url")
+                        except yt_dlp.utils.ExtractorError as ex:
+                            error_msg = str(ex)
+                            if "Sign in to confirm" in error_msg or "bot" in error_msg.lower():
+                                logger.error(
+                                    f"YouTube bot detection triggered (cookie: {use_cookie}).")
+                            elif "not available" in error_msg.lower():
+                                logger.error(
+                                    f"Video format not available or region-blocked (cookie: {use_cookie}).")
+                                continue  # Try next config
+                            else:
+                                logger.error(
+                                    "Live stream URL extraction failed: %s", ex)
+                            continue
+                        except yt_dlp.utils.DownloadError as ex:
+                            error_msg = str(ex)
+                            if "Requested format is not available" in error_msg:
+                                continue  # Try next config
+                            if "failed to load cookies" in error_msg.lower() or "netscape format" in error_msg.lower():
+                                logger.error(
+                                    "❌ Corrupted cookie file detected for live stream, removing: %s", cookie)
+                                # Remove corrupted cookie
+                                if cookie and cookie in self.cookies:
+                                    self.cookies.remove(cookie)
+                                try:
+                                    os.remove(f"HasiiMusic/cookies/{cookie}")
+                                except:
+                                    pass
+                            else:
+                                logger.error(
+                                    "Unexpected error during live stream extraction: %s", ex)
+                            continue
+                        except Exception as ex:
                             logger.error(
                                 "Unexpected error during live stream extraction: %s", ex)
-                        return None
-                    except Exception as ex:
-                        logger.error(
-                            "Unexpected error during live stream extraction: %s", ex)
-                        return None
+                            continue
+                return None
 
             stream_url = await asyncio.to_thread(_extract_url)
             return stream_url if stream_url else url
@@ -334,16 +352,27 @@ class YouTube:
             }
 
             def _download():
-                formats_to_try = [
-                    "bestaudio/best",
-                    "bestaudio[ext=m4a]/best[ext=mp4]/best",
-                    None  # fallback to yt-dlp default
+                # Define fallback configurations (format_id, use_cookie)
+                # If cookies trigger JS signature decryption that we can't solve, 
+                # falling back to no-cookie often works around the missing formats.
+                configs_to_try = [
+                    ("bestaudio/best", True),
+                    ("bestaudio[ext=m4a]/best[ext=mp4]/best", True),
+                    ("bestaudio/best", False),
+                    ("bestaudio[ext=m4a]/best[ext=mp4]/best", False),
+                    (None, False)  # fallback to yt-dlp default without cookie
                 ]
 
-                for fmt in formats_to_try:
+                for fmt, use_cookie in configs_to_try:
                     ydl_instance = None
                     try:
                         current_opts = dict(ydl_opts)
+                        
+                        # Handle cookie configuration
+                        if not use_cookie and "cookiefile" in current_opts:
+                            del current_opts["cookiefile"]
+                            
+                        # Handle format configuration
                         if fmt is not None:
                             current_opts["format"] = fmt
                         elif "format" in current_opts:
@@ -353,8 +382,8 @@ class YouTube:
                         # Extract info to get actual extension downloaded
                         info = ydl_instance.extract_info(url, download=True)
                         if not info:
-                            logger.error(f"❌ Failed to extract info for {video_id}")
-                            return None
+                            logger.error(f"❌ Failed to extract info for {video_id} (format: {fmt}, cookie: {use_cookie})")
+                            continue
                         
                         # Get actual filepath from yt-dlp's own download record (most reliable)
                         requested = info.get('requested_downloads', [])
@@ -394,38 +423,38 @@ class YouTube:
                             return found_file
                         
                         logger.error(f"❌ Download completed but file not found: {actual_filename}")
-                        return None
+                        # Even if file is not found, we shouldn't necessarily fail to next config 
+                        # because yt-dlp THOUGHT it succeeded. But let's continue just in case.
+                        continue
+                        
                     except yt_dlp.utils.ExtractorError as ex:
                         error_msg = str(ex)
                         if "Sign in to confirm" in error_msg or "bot" in error_msg.lower():
                             logger.warning(
-                                f"⚠️ YouTube bot detection for {video_id}. This is temporary.")
+                                f"⚠️ YouTube bot detection/age restriction for {video_id} (format {fmt}, cookie {use_cookie}).")
                         elif "not available" in error_msg.lower():
                             logger.error(
-                                "❌ Video not available: May be region-blocked or private.")
+                                f"❌ Video not available: May be region-blocked or private.")
                         elif "age" in error_msg.lower():
                             logger.error(
-                                "❌ Age-restricted video: Cookies required.")
+                                f"❌ Age-restricted video: Cookies required.")
                         else:
                             logger.error("❌ YouTube extraction failed: %s", ex)
-                        return None
+                        # Some extractor errors (like age restriction) mean we should definitely try another config?
+                        # Age restriction will fail on use_cookie=False, but might pass on True.
+                        continue
                     except yt_dlp.utils.DownloadError as ex:
                         error_msg = str(ex)
                         if "Requested format is not available" in error_msg:
-                            logger.warning(f"⚠️ Format '{fmt}' not available for {video_id}, retrying with next format...")
-                            if ydl_instance:
-                                try:
-                                    ydl_instance.close()
-                                except Exception:
-                                    pass
-                            continue  # Try next format in loop
+                            cookie_status = "with cookie" if use_cookie else "without cookie"
+                            logger.warning(f"⚠️ Format '{fmt}' not available for {video_id} {cookie_status}, retrying...")
+                            continue  # Try next config in loop
                         
                         if "416" in error_msg or "Requested range not satisfiable" in error_msg:
-                            # HTTP 416 - file partially downloaded, delete and retry won't help
                             logger.warning(f"⚠️ Range error for {video_id}, skipping")
+                            continue
                         elif "unable to rename" in error_msg.lower() or "rename file" in error_msg.lower():
-                            # Race condition: two concurrent downloads for the same video_id
-                            # The file may already exist under a different name - check glob
+                            import glob
                             possible_files = glob.glob(f"downloads/{video_id}.*")
                             possible_files = [f for f in possible_files if not f.endswith('.part')]
                             if possible_files:
@@ -446,10 +475,10 @@ class YouTube:
                                     logger.debug(f"Failed to remove corrupted cookie: {e}")
                         else:
                             logger.warning(f"⚠️ Download error for {video_id}: {ex}")
-                        return None
+                        continue  # Keep trying config fallbacks inside the loop
                     except Exception as ex:
                         logger.warning(f"⚠️ Unexpected download error for {video_id}: {ex}")
-                        return None
+                        continue
                     finally:
                         # CRITICAL: Explicitly close yt-dlp to release file handles
                         if ydl_instance:
